@@ -1,15 +1,19 @@
 import {FormEvent} from "react";
+import {fetchWeather} from "../features/api/asyncWeatherAction.ts";
+import {useAppDispatch} from "../app/hook.ts";
 
-interface Props {
-    getWeather: (city: string) => void;
-}
+// interface Props {
+//     getWeather: (city: string) => void;
+// }
 
-const Form = ({getWeather}: Props) => {
+const Form = () => {
+
+    const dispatch = useAppDispatch();
 
     const handleGetWeather = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const city = e.currentTarget.city.value.trim();
-        getWeather(city);
+        dispatch(fetchWeather(city));
     }
 
     return (

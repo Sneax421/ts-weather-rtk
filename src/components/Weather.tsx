@@ -1,11 +1,15 @@
-import {WeatherInfo} from "../utils/types";
+// import {WeatherInfo} from "../utils/types";
+import {useSelector} from "react-redux";
 
-interface Props {
-    message: string,
-    weather: Partial<WeatherInfo>
-}
+// interface Props {
+//     message: string,
+//     weather: Partial<WeatherInfo>
+// }
 
-const Weather = ({weather, message}: Props) => {
+const Weather = () => {
+    const message = useSelector(state => state.message);
+    const weather = useSelector(state => state.weatherInfo);
+
     if (message) {
         return (
             <div className={'infoWeath'}>{message}</div>
