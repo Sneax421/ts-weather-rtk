@@ -1,14 +1,11 @@
-// import {WeatherInfo} from "../utils/types";
-import {useSelector} from "react-redux";
 
-// interface Props {
-//     message: string,
-//     weather: Partial<WeatherInfo>
-// }
+
+import {useAppSelector} from "../app/hook.ts";
+
 
 const Weather = () => {
-    const message = useSelector(state => state.message);
-    const weather = useSelector(state => state.weatherInfo);
+    const message = useAppSelector(state => state.message);
+    const weather = useAppSelector(state => state.weatherInfo);
 
     if (message) {
         return (
